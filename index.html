@@ -5,6 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>AqUwUaain</title>
   <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/devicon.min.css">
 </head>
 <body>
 
@@ -21,7 +22,11 @@
   </nav>
 
   <header class="hero">
-    <div class="hero-text">
+    <div class="hero-content fade-in">
+      <div class="pfp-wrapper">
+        <img src="pfp.png" alt="AqUwUaain" class="pfp">
+        <div class="pfp-ring"></div>
+      </div>
       <span class="tag">Student &middot; Learner &middot; Entrepreneur &middot; Gamer</span>
       <h1>AqUwUaain.</h1>
       <p>Student by day, grinding ranked by night. Building things because it's fun.</p>
@@ -30,35 +35,45 @@
 
   <section id="about" class="about">
     <div class="container">
-      <span class="label">01 / About</span>
-      <h2>Who am I?</h2>
-      <p>I'm a student from the Philippines who's into tech, coding, and gaming. I like figuring out how things work and building stuff from scratch. Currently learning programming, exploring startups, and spending way too many hours in gacha games.</p>
-      <p>Not trying to be anyone I'm not. Just doing what I enjoy and seeing where it goes.</p>
+      <span class="label slide-up">01 / About</span>
+      <h2 class="slide-up">Who am I?</h2>
+      <p class="slide-up">I'm a student from the Philippines who's into tech, coding, and gaming. I like figuring out how things work and building stuff from scratch. Currently learning programming, exploring startups, and spending way too many hours in gacha games.</p>
+      <p class="slide-up">Not trying to be anyone I'm not. Just doing what I enjoy and seeing where it goes.</p>
     </div>
   </section>
 
   <section id="skills" class="skills">
     <div class="container">
-      <span class="label">02 / Skills</span>
-      <h2>What I work with.</h2>
+      <span class="label slide-up">02 / Skills</span>
+      <h2 class="slide-up">What I work with.</h2>
       <div class="skill-grid">
-        <div class="skill-card">
+        <div class="skill-card slide-up">
+          <i class="devicon-python-plain colored"></i>
           <h3>Python</h3>
           <div class="bar"><div class="fill" style="width:75%"></div></div>
         </div>
-        <div class="skill-card">
+        <div class="skill-card slide-up">
+          <i class="devicon-java-plain colored"></i>
           <h3>Java</h3>
           <div class="bar"><div class="fill" style="width:60%"></div></div>
         </div>
-        <div class="skill-card">
+        <div class="skill-card slide-up">
+          <i class="devicon-cplusplus-plain colored"></i>
           <h3>C++</h3>
           <div class="bar"><div class="fill" style="width:55%"></div></div>
         </div>
-        <div class="skill-card">
-          <h3>HTML / CSS</h3>
+        <div class="skill-card slide-up">
+          <i class="devicon-html5-plain colored"></i>
+          <h3>HTML</h3>
           <div class="bar"><div class="fill" style="width:80%"></div></div>
         </div>
-        <div class="skill-card">
+        <div class="skill-card slide-up">
+          <i class="devicon-css3-plain colored"></i>
+          <h3>CSS</h3>
+          <div class="bar"><div class="fill" style="width:78%"></div></div>
+        </div>
+        <div class="skill-card slide-up">
+          <i class="devicon-java-plain colored"></i>
           <h3>FXML</h3>
           <div class="bar"><div class="fill" style="width:50%"></div></div>
         </div>
@@ -68,29 +83,41 @@
 
   <section id="games" class="games">
     <div class="container">
-      <span class="label">03 / Games</span>
-      <h2>What I play.</h2>
-      <p class="sub">Daily rotation. No days off.</p>
+      <span class="label slide-up">03 / Games</span>
+      <h2 class="slide-up">What I play.</h2>
+      <p class="sub slide-up">Daily rotation. No days off.</p>
       <div class="game-grid">
-        <div class="game-card">
-          <span class="game-tag">Action RPG</span>
-          <h3>Wuthering Waves</h3>
-          <p>Open-world combat. Great movement system.</p>
+        <div class="game-card slide-up">
+          <div class="game-icon wuwa">W</div>
+          <div class="game-info">
+            <span class="game-tag">Action RPG</span>
+            <h3>Wuthering Waves</h3>
+            <p>Open-world combat. Great movement system.</p>
+          </div>
         </div>
-        <div class="game-card">
-          <span class="game-tag">Action RPG</span>
-          <h3>Zenless Zone Zero</h3>
-          <p>Stylish combat, fast-paced. HoYoverse done right.</p>
+        <div class="game-card slide-up">
+          <div class="game-icon zzz">Z</div>
+          <div class="game-info">
+            <span class="game-tag">Action RPG</span>
+            <h3>Zenless Zone Zero</h3>
+            <p>Stylish combat, fast-paced. HoYoverse done right.</p>
+          </div>
         </div>
-        <div class="game-card">
-          <span class="game-tag">FPS</span>
-          <h3>Valorant</h3>
-          <p>Competitive. Tilting. Can't stop playing.</p>
+        <div class="game-card slide-up">
+          <div class="game-icon val">V</div>
+          <div class="game-info">
+            <span class="game-tag">FPS</span>
+            <h3>Valorant</h3>
+            <p>Competitive. Tilting. Can't stop playing.</p>
+          </div>
         </div>
-        <div class="game-card">
-          <span class="game-tag">Open World</span>
-          <h3>Neverness to Everness</h3>
-          <p>Urban fantasy. Looks promising.</p>
+        <div class="game-card slide-up">
+          <div class="game-icon nte">N</div>
+          <div class="game-info">
+            <span class="game-tag">Open World</span>
+            <h3>Neverness to Everness</h3>
+            <p>Urban fantasy. Looks promising.</p>
+          </div>
         </div>
       </div>
     </div>
@@ -98,14 +125,14 @@
 
   <section id="contact" class="contact">
     <div class="container">
-      <span class="label">04 / Contact</span>
-      <h2>Reach me.</h2>
+      <span class="label slide-up">04 / Contact</span>
+      <h2 class="slide-up">Reach me.</h2>
       <div class="contact-grid">
-        <div>
+        <div class="slide-up">
           <span class="label-sm">Discord</span>
           <p>aquaaaaaaaaaaaa</p>
         </div>
-        <div>
+        <div class="slide-up">
           <span class="label-sm">GitHub</span>
           <p>AqUwUaain</p>
         </div>
@@ -119,6 +146,18 @@
       <span>Built from scratch</span>
     </div>
   </footer>
+
+  <script>
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+        }
+      });
+    }, { threshold: 0.1 });
+
+    document.querySelectorAll('.slide-up, .fade-in').forEach(el => observer.observe(el));
+  </script>
 
 </body>
 </html>
