@@ -162,12 +162,47 @@ section p{color:#999;max-width:600px;margin-bottom:1rem}
   border-radius:2px;
 }
 
+/* SETUP */
+.setup{background:var(--bg)}
+
+.setup-grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(160px,1fr));
+  gap:1.2rem;margin-top:2rem;
+}
+
+.setup-card{
+  padding:1.5rem;
+  background:var(--card);
+  border:1px solid var(--border);
+  border-radius:8px;
+  text-align:center;
+  transition:transform .2s,border-color .2s;
+}
+
+.setup-card:hover{transform:translateY(-3px);border-color:var(--accent)}
+
+.setup-label{
+  display:block;
+  font-size:0.6rem;letter-spacing:0.12em;text-transform:uppercase;
+  color:var(--accent);margin-bottom:0.5rem;
+}
+
+.setup-card h3{font-size:1.1rem;font-weight:600}
+
 /* GAMES */
-.games{background:var(--bg)}
+.games{background:var(--card);border-top:1px solid var(--border);border-bottom:1px solid var(--border)}
+
+.game-cat{
+  font-size:0.75rem;letter-spacing:0.1em;text-transform:uppercase;
+  color:var(--muted);margin:2rem 0 0.8rem;
+}
+
+.game-cat:first-of-type{margin-top:2rem}
 
 .game-grid{
   display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
-  gap:1.2rem;margin-top:2rem;
+  gap:1.2rem;
 }
 
 .game-card{
@@ -195,6 +230,8 @@ section p{color:#999;max-width:600px;margin-bottom:1rem}
 .game-icon.nte{background:linear-gradient(135deg,#6c5ce7,#a29bfe)}
 .game-icon.hsr{background:linear-gradient(135deg,#e8a0bf,#c76f9f)}
 .game-icon.mr{background:linear-gradient(135deg,#1a6ddd,#0d47a1)}
+.game-icon.fz{background:linear-gradient(135deg,#ff8c00,#e65100)}
+.game-icon.re{background:linear-gradient(135deg,#2e7d32,#1b5e20)}
 
 .game-info{flex:1}
 
