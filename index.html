@@ -9,13 +9,17 @@
 </head>
 <body>
 
+  <canvas id="particles"></canvas>
+
   <nav>
     <div class="nav-inner">
       <a href="#" class="logo">AQWUAAIN</a>
       <div class="nav-links">
         <a href="#about">About</a>
         <a href="#skills">Skills</a>
+        <a href="#setup">Setup</a>
         <a href="#games">Games</a>
+        <a href="#media">Media</a>
         <a href="#contact">Contact</a>
       </div>
     </div>
@@ -26,9 +30,10 @@
       <div class="pfp-wrapper">
         <img src="pfp.png" alt="AqUwUaain" class="pfp">
         <div class="pfp-ring"></div>
+        <div class="pfp-ring pfp-ring2"></div>
       </div>
       <span class="tag">Student &middot; Learner &middot; Entrepreneur &middot; Gamer</span>
-      <h1>AqUwUaain.</h1>
+      <h1><span id="typed"></span><span class="cursor">|</span></h1>
       <p>Student at Polytechnic University of the Philippines. PC enthusiast who likes building rigs. Grinding ranked by night. Building things because it's fun.</p>
     </div>
   </header>
@@ -87,19 +92,19 @@
       <h2 class="slide-up">My build.</h2>
       <p class="sub slide-up">Student budget. No regrets.</p>
       <div class="setup-grid">
-        <div class="setup-card slide-up">
+        <div class="setup-card slide-up float" style="--delay:0s">
           <span class="setup-label">CPU</span>
           <h3>Intel i5-12400F</h3>
         </div>
-        <div class="setup-card slide-up">
+        <div class="setup-card slide-up float" style="--delay:0.2s">
           <span class="setup-label">GPU</span>
           <h3>RTX 5060</h3>
         </div>
-        <div class="setup-card slide-up">
+        <div class="setup-card slide-up float" style="--delay:0.4s">
           <span class="setup-label">RAM</span>
           <h3>32GB</h3>
         </div>
-        <div class="setup-card slide-up">
+        <div class="setup-card slide-up float" style="--delay:0.6s">
           <span class="setup-label">Monitor</span>
           <h3>240Hz</h3>
         </div>
@@ -237,18 +242,18 @@
       <span class="label slide-up">06 / Contact</span>
       <h2 class="slide-up">Reach me.</h2>
       <div class="contact-grid">
-        <div class="slide-up">
+        <a href="mailto:aquwuaa@gmail.com" class="contact-card slide-up">
           <span class="label-sm">Email</span>
           <p>aquwuaa@gmail.com</p>
-        </div>
-        <div class="slide-up">
+        </a>
+        <div class="contact-card slide-up">
           <span class="label-sm">Discord</span>
           <p>aquaaaaaaaaaaaa</p>
         </div>
-        <div class="slide-up">
+        <a href="https://github.com/AqUwUaain" target="_blank" class="contact-card slide-up">
           <span class="label-sm">GitHub</span>
           <p>AqUwUaain</p>
-        </div>
+        </a>
       </div>
     </div>
   </section>
@@ -261,6 +266,80 @@
   </footer>
 
   <script>
+    // PARTICLES
+    const canvas = document.getElementById('particles');
+    const ctx = canvas.getContext('2d');
+    let particles = [];
+
+    function resize() {
+      canvas.width = window.innerWidth;
+      canvas.height = window.innerHeight;
+    }
+    resize();
+    window.addEventListener('resize', resize);
+
+    class Particle {
+      constructor() {
+        this.reset();
+      }
+      reset() {
+        this.x = Math.random() * canvas.width;
+        this.y = Math.random() * canvas.height;
+        this.size = Math.random() * 2 + 0.5;
+        this.speedY = -Math.random() * 0.5 - 0.1;
+        this.speedX = (Math.random() - 0.5) * 0.3;
+        this.opacity = Math.random() * 0.5 + 0.1;
+      }
+      update() {
+        this.y += this.speedY;
+        this.x += this.speedX;
+        if (this.y < -10) this.reset();
+        if (this.y < -10) { this.y = canvas.height + 10; }
+      }
+      draw() {
+        ctx.beginPath();
+        ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
+        ctx.fillStyle = `rgba(162,155,254,${this.opacity})`;
+        ctx.fill();
+      }
+    }
+
+    for (let i = 0; i < 80; i++) particles.push(new Particle());
+
+    function animateParticles() {
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
+      particles.forEach(p => { p.update(); p.draw(); });
+      requestAnimationFrame(animateParticles);
+    }
+    animateParticles();
+
+    // TYPING EFFECT
+    const typed = document.getElementById('typed');
+    const texts = ['AqUwUaain.', 'PC Builder.', 'Gamer.', 'Student.'];
+    let textIndex = 0, charIndex = 0, deleting = false;
+
+    function type() {
+      const current = texts[textIndex];
+      if (!deleting) {
+        typed.textContent = current.substring(0, charIndex + 1);
+        charIndex++;
+        if (charIndex === current.length) {
+          setTimeout(() => { deleting = true; type(); }, 2000);
+          return;
+        }
+      } else {
+        typed.textContent = current.substring(0, charIndex - 1);
+        charIndex--;
+        if (charIndex === 0) {
+          deleting = false;
+          textIndex = (textIndex + 1) % texts.length;
+        }
+      }
+      setTimeout(type, deleting ? 50 : 100);
+    }
+    type();
+
+    // SCROLL REVEAL
     const observer = new IntersectionObserver((entries) => {
       entries.forEach(entry => {
         if (entry.isIntersecting) {
@@ -270,6 +349,15 @@
     }, { threshold: 0.1 });
 
     document.querySelectorAll('.slide-up, .fade-in').forEach(el => observer.observe(el));
+
+    // GLOW ON MOUSE
+    document.querySelectorAll('.game-card, .skill-card, .setup-card, .media-card').forEach(card => {
+      card.addEventListener('mousemove', e => {
+        const rect = card.getBoundingClientRect();
+        card.style.setProperty('--x', (e.clientX - rect.left) + 'px');
+        card.style.setProperty('--y', (e.clientY - rect.top) + 'px');
+      });
+    });
   </script>
 
 </body>
