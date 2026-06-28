@@ -245,6 +245,33 @@ section p{color:#999;max-width:600px;margin-bottom:1rem}
 
 .game-info p{font-size:0.8rem;color:var(--muted);margin:0}
 
+/* MEDIA */
+.media{background:var(--bg)}
+
+.media-grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(240px,1fr));
+  gap:1rem;margin-top:1rem;
+}
+
+.media-card{
+  display:flex;align-items:center;gap:1rem;
+  padding:1.2rem 1.5rem;
+  background:var(--card);
+  border:1px solid var(--border);
+  border-radius:8px;
+  transition:transform .2s,border-color .2s;
+}
+
+.media-card:hover{transform:translateY(-3px);border-color:var(--accent)}
+
+.media-num{
+  font-size:1.4rem;font-weight:700;
+  color:var(--accent);min-width:36px;
+}
+
+.media-card h3{font-size:0.9rem;font-weight:500;color:var(--fg);margin:0}
+
 /* CONTACT */
 .contact{background:var(--card);border-top:1px solid var(--border)}
 
